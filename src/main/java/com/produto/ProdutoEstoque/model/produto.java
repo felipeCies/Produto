@@ -2,27 +2,32 @@ package com.produto.ProdutoEstoque.model;
 
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class produto {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY);
+    private long id;
     private String nome;
     private int quantidade;
     private double preco;
 
-    public produto(int id, String nome, int quantidade, double preco) {
+    public produto(long id, String nome, int quantidade, double preco) {
         this.id = id;
         this.nome = nome;
         this.quantidade = quantidade;
         this.preco = preco;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
